@@ -12,5 +12,5 @@ int main(void){
 
     int sum;
     sum=integert1+integert2;
-    printf("the sum is %d",sum);
+    printf("the sum is %d\n",sum);
 }
