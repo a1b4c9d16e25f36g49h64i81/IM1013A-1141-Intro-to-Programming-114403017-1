@@ -18,7 +18,7 @@ int main(void){
             printf("your enter is invaliable.please enter a number between %d and %d\n",iGrademaxlimit,igrademinlimit);
             scanf("%d",&igrade);
         }
-        if(igrade<=60){
+        if(igrade<60){
             ifail += 1;
         }
         if(igrade>=60){
@@ -34,12 +34,14 @@ int main(void){
     }//end while
     
     if(icounter==0){    //if user not enter any grande
-        printf("you don't enter any grade");
+        printf("you don't enter any grade\n");
     }
     else{
     printf("the average is %.2f\n",(float)itotal/icounter);
     printf("the pass number is %d\n",ipass);
     printf("the fail number is %d\n",ifail);
+    printf("the student number is %d\n",icounter);
+    printf("the total grade is %d\n",itotal);
 
     }//end if
 
