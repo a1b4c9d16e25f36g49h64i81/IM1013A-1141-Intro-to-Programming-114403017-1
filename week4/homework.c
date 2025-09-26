@@ -13,23 +13,23 @@ int main(void){
         int iGrademaxlimit = 100;
         int igrademinlimit = 0;
 
+        if (igrade>=0 && igrade<= 100){
+            if(igrade<60){
+                ifail += 1;
+            }
+            if(igrade>=60){
+                ipass += 1;
+            }
+            icounter = icounter + 1;
+            itotal = igrade + itotal;
 
-        while (igrade<=0 || igrade>= 100){
+            printf("please enter student grade or enter -1 to end\n");
+            scanf("%d",&igrade); 
+        }
+        else{
             printf("your enter is invaliable.please enter a number between %d and %d\n",iGrademaxlimit,igrademinlimit);
             scanf("%d",&igrade);
         }
-        if(igrade<60){
-            ifail += 1;
-        }
-        if(igrade>=60){
-            ipass += 1;
-        }
-        icounter = icounter + 1;
-        itotal = igrade + itotal;
-
-        printf("please enter student grade or enter -1 to end\n");
-        scanf("%d",&igrade);
-        
 
     }//end while
     
