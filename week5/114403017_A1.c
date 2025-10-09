@@ -4,30 +4,31 @@ int main(void){
     int iBalance=10000;
     int iwithdraw=0;
     
-    printf("Curent balance：%d\n",iBalance);
+    printf("Curent balance：%d\n\n",iBalance);
     printf("enter withdraw amount(0 to quit)：");
+    scanf("%d",&iwithdraw);
 
     while(iwithdraw!=0){
-        scanf("%d",&iwithdraw);
         if (iwithdraw<iBalance){
             if (iwithdraw%100==0){
-                printf("withdraw seccessful");
+                printf("withdraw seccessful!\n");
                 iBalance-=iwithdraw;
             }
             else{
-                printf("withdraw amount must be multiple of 100");
+                printf("withdraw amount must be multiple of 100\n");
             }
         }
         else{
-            printf("insuffcient balance");
+            printf("insuffcient balance\n");
         }
-        printf("Curent balance：%d\n",iBalance);
+        printf("Curent balance：%d\n\n",iBalance);
         printf("enter withdraw amount(0 to quit)：");
+        scanf("%d",&iwithdraw);
 
 
     }
-    printf("Transaction ended.");
-    printf("Final balance：%d",iBalance);
+    printf("Transaction ended.\n");
+    printf("Final balance：%d\n",iBalance);
 
 
 }
