@@ -1,6 +1,6 @@
 #include<stdio.h>
+#include<math.h>
 
 int main(void){
-    int a =;
-    printf("%d",a);
+printf("%f",20*3+3*pow((1+0.03),3));
 }

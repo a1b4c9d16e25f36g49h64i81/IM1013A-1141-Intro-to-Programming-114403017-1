@@ -64,28 +64,56 @@ int main(void){
         }
     }
         case 2:
+        while(1){    
             icount+=1;
-            print("[Optional 2] Enter principle in dallors (positive), or -1 to end: \n");
-            scanf("%d",&iInstall);
-            printf("--- Installments Plan Summary ---\n");
-            printf("Principle: %d",(float)iInstall);
-            if (iInstall>=500&&iInstall<=1000){
-            printf("Number of Period: 3\n");
-            printf("Handling Fee per Period: 20.00\n");
-            print("Interest Rate per Period: 3.00%\n");
-            printf("Repayment (Compound on Principle): %f\n",iInstall*pow((1+0.03),3));
-            printf("Total Handling Fee: ",20*3);
-            printf("Total Repayment (Including Handling Fee): \n",20*3+iInstall*pow((1+0.03),3));
-            printf("Payment per Installment: \n",(iInstall*pow((1+0.03),3)+20*3)/3);
 
+
+            printf("[Optional 2] Enter principle in dallors (positive), or -1 to end: \n");
+            scanf("%d",&iInstall);
+            if (iInstall==-1){
+                break;
             }
+            printf("--- Installments Plan Summary ---\n");
+            printf("Principle: %.2f",(float)iInstall);
+            if (iInstall<500){
+                printf("Number of Period: 1\n");
+                printf("Handling Fee per Period: 0.00\n");
+                printf("Interest Rate per Period: 0.00%%");
+                printf("\nRepayment (Compound on Principle): %f\n",iInstall);
+                printf("Total Handling Fee: %.2f\n",(float)0);
+                printf("Total Repayment (Including Handling Fee): %.2f\n",(float)iTotal_Repayment);
+                printf("Payment per Installment: %.2f\n",((iInstall*pow((1+0.03),3)+20*3)/3));
+            }
+            if (iInstall>=500&&iInstall<=1000){
+                printf("Number of Period: 3\n");
+                printf("Handling Fee per Period: 20.00\n");
+                printf("Interest Rate per Period: 3.00%%");
+                printf("\nRepayment (Compound on Principle): %f\n",(iInstall*pow((1+0.03),3)));
+                printf("Total Handling Fee: %f\n",(float)20*3);
+                printf("Total Repayment (Including Handling Fee): %.2f\n",(float)20*3+iInstall*pow((1+0.03),3));
+                printf("Payment per Installment: %.2f\n",((iInstall*pow((1+0.03),3)+20*3)/3));
+            }
+            if (iInstall>=500&&iInstall<=1000){
+                printf("Number of Period: 3\n");
+                printf("Handling Fee per Period: 20.00\n");
+                printf("Interest Rate per Period: 3.00%%");
+                printf("\nRepayment (Compound on Principle): %f\n",(iInstall*pow((1+0.03),3)));
+                printf("Total Handling Fee: %f\n",(float)20*3);
+                iTotal_Repayment=20*3+iInstall*pow((1+0.03),3);
+                printf("Total Repayment (Including Handling Fee): %.2f\n",(float)iTotal_Repayment);
+                printf("Payment per Installment: %.2f\n",((iInstall*pow((1+0.03),3)+20*3)/3));
+            }
+        }
+        case -1:
+            icount+=1;
+            break;
         default:
-            print("Unown selection.Please choose 1, 2,or -1 to end");
+            printf("Unown selection.Please choose 1, 2,or -1 to end\n");
             break;
     }
         if(icount!=0){
             break;
         }
     }
-    printf("program ends");
+    printf("program ends\n");
 }
