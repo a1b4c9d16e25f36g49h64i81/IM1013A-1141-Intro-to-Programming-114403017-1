@@ -2,12 +2,10 @@
 #include<math.h>
 
 int main(void){
-int nums[3];
+float a=3.3;
 
-nums[0] = "";
-nums[1] = "";
-nums[2] = "";
-
-printf("%d %d %d\n", nums[0], nums[1], nums[2]);
+if (a==(int)a){
+    puts("1234");
+}
 
 }
