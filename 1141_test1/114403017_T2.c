@@ -7,13 +7,13 @@ void dectobin(int a){
     int icount=0;
 
     while(number!=0){
-        printf("%d %d %d\n",number,icount,bin);
+        //printf("%d %d %d\n",number,icount,bin);
         bin=bin+(number%2)*pow(10,icount);
         number=number/2;
         icount+=1;
     }
 
-    //return bin;
+    printf("The binary number is %d\n", bin);
 }
 
 void get_symbol(int row,int col,int N){
@@ -55,73 +55,98 @@ void get_symbol(int row,int col,int N){
 void dectobin(int a);
 
 int main(void){
-    float fSelect=0;
-    float fnumber=0;
-    int icount=0;
+    
 
-
+/*
     printf(" ==== MENU ====\n");
     printf("%s","1) Option 1 - Increasing Number Triangle Pattern\n");
     printf("%s","2) Option 2 - Decimal to binary number using recursion\n");
     printf("%s","3) Option 3 - Printing a Four-Quadrant Pattern\n");
     printf("%s","(-1) End Program\n");
     printf("%s","Select: ");
-    scanf("%f",&fSelect);
+    scanf("%f",&fSelect);*/
 
+    int idefault=0;
+    do{ 
+        float fSelect=0;
+        float fnumber=0;
+        int icount=0;
+        printf(" ==== MENU ====\n");
+        printf("%s","1) Option 1 - Increasing Number Triangle Pattern\n");
+        printf("%s","2) Option 2 - Decimal to binary number using recursion\n");
+        printf("%s","3) Option 3 - Printing a Four-Quadrant Pattern\n");
+        printf("%s","(-1) End Program\n");
+        printf("%s","Select: ");
+        scanf("%f",&fSelect);
     switch((int)fSelect){
-    case 1://increasing number
-        do{
-            printf("\nPlease enter the size of the triangle (1~20): ");
-            scanf("%f",&fnumber);
+        case 1://increasing number
+            do{
+                if (icount!=0){
+                    printf("Invalid Input!\n");
+                }
 
-            if (icount!=0){
-                printf("Invalid Input!");
-            }
-        }while(fnumber>20 || fnumber<1 || fnumber==(int)(fnumber));
-        
-        int icounter=1;
+                printf("\nPlease enter the size of the triangle (1~20): ");
+                scanf("%f",&fnumber);
 
-        for (int i=1 ;i<(int)fnumber+1;i++){
-            for (int j=0;j<i;j++){
-                printf("%d ",icounter);
-                icounter++;
+                icount++;
+            
+            }while(fnumber>20 || fnumber<1 || fnumber!=(int)(fnumber));
+            
+            int icounter=1;
+
+            for (int i=1 ;i<(int)fnumber+1;i++){
+                for (int j=0;j<i;j++){
+                    printf("%d ",icounter);
+                    icounter++;
+                }
+                puts("");
             }
             puts("");
-        }
-    
-    case 2://decimal to binary
-        do{
-            printf("\nPlease enter a decimal number: ");
-            scanf("%f",&fnumber);
-
-            if (icount!=0){
-                printf("Invalid Input!");
-            }
-        }while(fnumber>127 || fnumber<0);
+            break;
         
-        //printf("%d\n",dectobin((int)fnumber));
+        case 2://decimal to binary
+            do{
+                if (icount!=0){
+                    printf("Invalid Input!\n");
+                }
+                printf("\nPlease enter a decimal number: ");
+                scanf("%f",&fnumber);
+                icount++;
+            }while(fnumber>127 || fnumber<0 || fnumber!=(int)(fnumber));
+            
+            dectobin((int)fnumber);
 
-        /*for(int i =0;i<fnumber;i++){
-            for(int j =0;j<;j++){
+            /*for(int i =0;i<fnumber;i++){
+                for(int j =0;j<;j++){
 
-            }
-        }*/
-    case 3://printing a pattern
-        do{
-            printf("\nPlease enter a decimal number: ");
-            scanf("%f",&fnumber);
+                }
+            }*/
+           puts("");
+            break;
+        case 3://printing a pattern
+            do{
+                if (icount!=0){
+                    printf("Invalid Input!\n");
+                }
+                printf("\nPlease enter the size of each quadrant: ");
+                scanf("%f",&fnumber);
+                icount++;
+            }while(fnumber>5 || fnumber<1 || fnumber!=(int)(fnumber));
 
-            if (icount!=0){
-                printf("Invalid Input!");
-            }
-        }while(fnumber>127 || fnumber<0);
-        get_symbol(0,0,(int)fnumber);
+            get_symbol(0,0,(int)fnumber);
+            puts("");
+            break;
 
-    case -1://end
-        printf("\nProgram ends\n");
-        break;
-    default:
-        printf("InValid Input!");
+        case -1://end
+            printf("\nProgram ends\n");
+            idefault=1;
+            break;
+        default:
+            printf("InValid Input!\n\n");
+            puts("");
+            break;
+
     }
-
+    //puts("");
+    }while(idefault==0);
 }
