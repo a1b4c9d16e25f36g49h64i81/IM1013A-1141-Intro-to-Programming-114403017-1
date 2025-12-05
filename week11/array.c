@@ -15,6 +15,7 @@ void printArray(int a,int b[a]){
 }
 
 void randomizeArray(int a,int b[a]){
+    srand(9);
     for(int i=0;i<a;i++){
         b[i]=rand()%5+1;
     }
