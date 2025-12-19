@@ -126,9 +126,9 @@ int main(void){
     while(1){
         int exist=0;
     do{
-        if(count!=0){
+        /*if(count!=0){
             printf("\nInvalid Input!\n");
-        }
+        }*/
     printf(" ==== MENU ====\n");
     printf("1) Option 1 - Ring Traversal of a Square Matrix\n");
     printf("2) Option 2 - Flatten and Sort\n");
@@ -232,6 +232,7 @@ case -1:
     exist+=1;
     break;
 default:
+printf("\nInvalid Input!\n");
     break;
 }
 
